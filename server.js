@@ -11,7 +11,11 @@ app.get("/", (req,res) => {
 // index route
 app.get("/trips/", (req, res) => {
     res.send(trips);
-})
+});
+
+app.get("/trips/new", (req, res) => {
+    res.render("new.ejs");
+});
 
 //show route
 app.get("/trips/:id", (req, res) => {
@@ -19,6 +23,8 @@ app.get("/trips/:id", (req, res) => {
         trip: trips[req.params.id],
     });
 });
+
+
 
 app.listen(3000, () => {
     console.log("I am listening");
