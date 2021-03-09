@@ -23,6 +23,7 @@ app.get("/trips/", (req, res) => {
     });
 });
 
+// new route
 app.get("/trips/new", (req, res) => {
     res.render("new.ejs");
 });
@@ -31,6 +32,21 @@ app.post("/trips", (req, res) => {
     trips.push(req.body);
     console.log(trips);
     res.redirect("/trips");
+});
+
+//edit route
+app.get("/trips/:id/edit", (req, res) => {
+    res.render("edit.ejs", {
+        trip: trips[req.params.id],
+        id: req.params.id
+    });
+});
+
+//put route
+app.put("/trips/:id", (req, res) => {
+    let id = parseInt(req.params.id);
+    trips[id] = req.body
+    res.redirect('/trips');
 });
 
 //delete route
