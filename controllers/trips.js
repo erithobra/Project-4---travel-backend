@@ -1,15 +1,24 @@
-const trips = require("../trips.js");
+// const trips = require("../models/trips.js");
+const Trip = require("../models").Trip;
 
 const index = (req, res) => {
-    res.render("index.ejs", {
-        trips: trips
+    Trip.findAll().then(trips => {
+        res.render("index.ejs", {
+            trips: trips
+        });
     });
 };
 
 const show = (req, res) => {
-    res.render("show.ejs", {
-        trip: trips[req.params.id],
+    Trip.findByPk(req.params.id).then(trip => {
+        res.render("show.ejs", {
+            trip: trip
+        });
     });
+
+    // res.render("show.ejs", {
+    //     trip: trips[req.params.id],
+    // });
 };
 
 const renderNew = (req, res) => {
@@ -17,25 +26,35 @@ const renderNew = (req, res) => {
 };
 
 const postNew = (req, res) => {
-    trips.push(req.body);
-    res.redirect("/trips");
+    Trip.create(req.body).then(newTrip => {
+        res.redirect("/trips")
+    });
 };
 
 const renderEdit = (req, res) => {
-    res.render("edit.ejs", {
-        trip: trips[req.params.id],
-        id: req.params.id
+    Trip.findByPk(req.params.id).then(trip => {
+        res.render("edit.ejs", {
+            trip: trip
+        });
     });
 };
 
 const putEdit = (req, res) => {
-    trips[req.params.id] = req.body;
-    res.redirect('/trips');
+    Trip.update(req.body, {
+        where: { id: req.params.id },
+        returning: true
+    })
+    .then(trip => {
+        res.redirect("/trips");
+    });
+    // trips[req.params.id] = req.body;
+    // res.redirect('/trips');
 };
 
 const deleteTrip = (req, res) => {
-    trips.splice(req.params.id, 1)
-    res.redirect("/trips")
+    Trip.destroy({ where: { id: req.params.id } }).then(() => {
+        res.redirect("/trips");
+    });
 };
 
 module.exports = {

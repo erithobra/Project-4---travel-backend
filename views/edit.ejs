@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Travel App Edit Page</h1>
-    <form action="/trips/<%=id%>?_method=PUT" method="POST">
+    <form action="/trips/<%=trip.id%>?_method=PUT" method="POST">
         Destination: <input type="text" name="destination" value="<%= trip.destination %>"/>
         Start Date: <input type="text" name="startDate" value="<%= trip.startDate %>"/>
         End Date: <input type="text" name="endDate" value="<%= trip.endDate %>"/>

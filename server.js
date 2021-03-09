@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const methodOverride = require("method-override")
-const trips = require("./models/trips.js")
+const trips = require("./trips.js")
 const routes = require("./routes");
 
 app.use(methodOverride('_method'));
