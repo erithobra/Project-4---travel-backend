@@ -44,8 +44,7 @@ app.get("/trips/:id/edit", (req, res) => {
 
 //put route
 app.put("/trips/:id", (req, res) => {
-    let id = parseInt(req.params.id);
-    trips[id] = req.body
+    trips[req.params.id] = req.body
     res.redirect('/trips');
 });
 

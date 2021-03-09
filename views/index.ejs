@@ -15,7 +15,7 @@
         <% for(let i=0; i < trips.length; i++) { %>
             <li>
                 <a href="/trips/<%=i%>"> <%= trips[i].destination %></a>
-                <form action="/trips/<%= i %> ?_method=DELETE" method="POST">
+                <form action="/trips/<%= i %>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete"/>
                 </form>
                 <a href="/trips/<%= i %>/edit">Edit</a>
