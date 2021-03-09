@@ -1,4 +1,4 @@
-const trips = require("../models/trips.js");
+const trips = require("../trips.js");
 
 const index = (req, res) => {
     res.render("index.ejs", {
