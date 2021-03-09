@@ -1,8 +1,10 @@
-// const users = require("../users.js");
+const User = require("../models").User;
 
 const index = (req, res) => {
-    res.render("users/index.ejs", {
-        users: users
+    User.findAll().then(users => {
+        res.render("users/index.ejs", {
+            users: users
+        });
     });
 };
 
@@ -11,17 +13,22 @@ const renderLogin = (req, res) => {
 }
 
 const login = (req, res) => {
-    let index = users.findIndex(
-        user => (user.firstName === req.body.firstName &&
-            user.lastName === req.body.lastName && 
-            user.password === req.body.password)
-    )
-    res.redirect(`/users/${index}`);
+    User.findOne({
+        where: {
+            username: req.body.username,
+            password: req.body.password
+        }
+    })
+    .then(foundUser => {
+        res.redirect(`/users/${foundUser.id}`);
+    });
 };
 
 const show = (req, res) => {
-    res.render("users/show.ejs", {
-        user: users[req.params.id],
+    User.findByPk(req.params.id).then(user => {
+        res.render("users/show.ejs", {
+            user: user
+        });
     });
 };
 
@@ -30,25 +37,36 @@ const renderNew = (req, res) => {
 };
 
 const postNew = (req, res) => {
-    users.push(req.body);
-    res.redirect("/users");
+    User.create(req.body).then(newUser => {
+        res.redirect("/users")
+    });
 };
 
 const renderEdit = (req, res) => {
-    res.render("users/edit.ejs", {
-        user: users[req.params.id],
-        id: req.params.id
+    User.findByPk(req.params.id).then(user => {
+        res.render("users/edit.ejs", {
+            user:user
+        });
     });
 };
 
 const putEdit = (req, res) => {
-    users[req.params.id] = req.body;
-    res.redirect("/users");
+    User.update(req.body, {
+        where: { id: req.params.id },
+        returning: true
+    })
+    .then(user => {
+        res.redirect("/users");
+    });
 };
 
 const deleteUser = (req, res) => {
-    users.splice(req.params.id, 1)
-    res.redirect("/users")
+    User.destroy({ 
+        where: { id: req.params.id } }).then(() => {
+            res.redirect("/users");
+    });
+    // users.splice(req.params.id, 1)
+    // res.redirect("/users")
 };
 
 module.exports = {

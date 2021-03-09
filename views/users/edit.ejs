@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>User Edit Page</h1>
-    <form action="/users/<%=id%>?_method=PUT" method="POST">
+    <form action="/users/<%=user.id%>?_method=PUT" method="POST">
         First Name: <input type="text" name="firstName" value="<%= user.firstName %>"/>
         Last Name: <input type="text" name="lastName" value="<%= user.lastName %>"/>
         Password: <input type="text" name="password" value="<%= user.password %>"/>

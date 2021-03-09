@@ -1,4 +1,3 @@
-// const trips = require("../models/trips.js");
 const Trip = require("../models").Trip;
 
 const index = (req, res) => {
