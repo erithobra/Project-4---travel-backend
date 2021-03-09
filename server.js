@@ -14,54 +14,9 @@ app.use(express.urlencoded( {extended: true }));
 
 app.use("/trips", routes.trips);
 
-app.get("/", (req,res) => {
-    res.send("here is your information");
-});
-
-// index route
-// app.get("/trips/", (req, res) => {
-//     res.render("index.ejs", {
-//         trips: trips, 
-//     });
+// app.get("/", (req,res) => {
+//     res.send("here is your information");
 // });
-
-// new route
-app.get("/trips/new", (req, res) => {
-    res.render("new.ejs");
-});
-
-app.post("/trips", (req, res) => {
-    trips.push(req.body);
-    console.log(trips);
-    res.redirect("/trips");
-});
-
-//edit route
-app.get("/trips/:id/edit", (req, res) => {
-    res.render("edit.ejs", {
-        trip: trips[req.params.id],
-        id: req.params.id
-    });
-});
-
-//put route
-app.put("/trips/:id", (req, res) => {
-    trips[req.params.id] = req.body
-    res.redirect('/trips');
-});
-
-//delete route
-app.delete("/trips/:id", (req, res) => {
-    trips.splice(req.params.id, 1) // removes item from array
-    res.redirect("/trips") // redirect back to index
-});
-
-//show route
-app.get("/trips/:id", (req, res) => {
-    res.render("show.ejs", {
-        trip: trips[req.params.id],
-    });
-});
 
 
 
