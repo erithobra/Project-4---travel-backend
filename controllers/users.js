@@ -2,9 +2,15 @@ const User = require("../models").User;
 
 const index = (req, res) => {
     User.findAll().then(users => {
-        res.render("users/index.ejs", {
-            users: users
-        });
+        res.json(users)
+    })
+    .catch(err => {
+        res.send(`ERROR: ${err}`);
+    
+
+        // res.render("users/index.ejs", {
+        //     users: users
+        // });
     });
 };
 

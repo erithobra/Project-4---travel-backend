@@ -1,24 +1,33 @@
-const express = require("express")
-const app = express()
-const methodOverride = require("method-override")
-const trips = require("./trips.js")
+const express = require("express");
+const methodOverride = require("method-override");
 const routes = require("./routes");
+const app = express();
+const cors = require('cors');
 
-app.use(methodOverride('_method'));
 app.use(express.urlencoded( {extended: true }));
+app.use(methodOverride('_method'));
 
-app.use("/trips", routes.trips);
-app.use("/users", routes.users);
+const corsOptions = {
+    origin: ['http://localhost:3000'],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, //allows session cookies to be sent back and forth
+    optionsSuccessStatus: 200 //legacy browsers
+}
+
+app.use(cors(corsOptions))
 
 app.use((req, res, next) => {
     console.log("I run for all routes");
     next();
 });
 
+app.use("/trips", routes.trips);
+app.use("/users", routes.users);
+
 // app.get("/", (req,res) => {
 //     res.send("here is your information");
 // });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log("I am listening");
 });

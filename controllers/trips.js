@@ -1,11 +1,16 @@
 const Trip = require("../models").Trip;
 
 const index = (req, res) => {
-    Trip.findAll().then(trips => {
-        res.render("index.ejs", {
-            trips: trips
-        });
-    });
+    Trip.findAll()
+    .then(trips => {
+        res.json(trips)
+    })
+    .catch(err => {
+        res.send(`ERROR: ${err}`);
+    })
+        // res.render("index.ejs", {
+        //     trips: trips
+        // })
 };
 
 const show = (req, res) => {
