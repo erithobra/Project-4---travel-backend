@@ -4,7 +4,7 @@ const ctrl = require("../controllers");
 
 router.get("/", ctrl.trips.index);
 router.get("/new", ctrl.trips.renderNew);
-router.post("/", ctrl.trips.postNew);
+router.post("/postNew", ctrl.trips.postNew);
 router.get("/:id/edit", ctrl.trips.renderEdit);
 router.put("/:id", ctrl.trips.putEdit);
 router.delete("/:id", ctrl.trips.deleteTrip);

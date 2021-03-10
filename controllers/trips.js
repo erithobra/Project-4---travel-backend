@@ -30,8 +30,15 @@ const renderNew = (req, res) => {
 };
 
 const postNew = (req, res) => {
-    Trip.create(req.body).then(newTrip => {
-        res.redirect("/trips")
+
+
+    Trip.create(req.body)
+    .then(newTrip => {
+        res.json(newTrip)
+        // res.redirect("/trips")
+    })
+    .catch(err => {
+        res.send(`ERROR: ${err}`)
     });
 };
 

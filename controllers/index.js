@@ -1,4 +1,4 @@
 module.exports = {
-    trips:require("./trips"),
+    trips: require("./trips"),
     users: require("./users"),
 };
