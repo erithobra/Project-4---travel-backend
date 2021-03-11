@@ -81,10 +81,27 @@ const editUser = (req, res) => {
 };
 
 const deleteUser = (req, res) => {
+    // User.findByPk(req.user.id)
+    // .then(foundUser => {
+    //     if(foundUser.userId === req.user.id){
+    //         User.destroy({})
+    //         .then(() => {
+    //             res.send("success")
+    //         })
+    //     } else {
+    //         res.send("ERROR: cannont delete user")
+    //     }
+    // })
+    // .catch(err => {
+    //     res.send(`ERROR: ${err}`);
+    // })
+    
     User.destroy({ 
-        where: { id: req.params.id } }).then(() => {
-            res.redirect("/users");
-    });
+        where: { id: req.params.id } })
+        // .then(() => {
+        //     res.redirect("/users");
+        // });
+
     // users.splice(req.params.id, 1)
     // res.redirect("/users")
 };
