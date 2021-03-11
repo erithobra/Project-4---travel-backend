@@ -60,14 +60,24 @@ const renderEdit = (req, res) => {
     });
 };
 
-const putEdit = (req, res) => {
+const editUser = (req, res) => {
     User.update(req.body, {
         where: { id: req.params.id },
         returning: true
     })
-    .then(user => {
-        res.redirect("/users");
-    });
+
+    .then(() => {
+        User.findByPk(req.params.id, {})
+        .then(userProfile => {
+            res.json(userProfile)
+        })
+    })
+    .catch(err => {
+        res.send(`ERROR; ${err}`);
+    })
+    // .then(user => {
+    //     res.redirect("/users");
+    // });
 };
 
 const deleteUser = (req, res) => {
@@ -85,7 +95,7 @@ module.exports = {
     renderNew,
     postNew,
     renderEdit,
-    putEdit,
+    editUser,
     deleteUser,
     renderLogin,
     login

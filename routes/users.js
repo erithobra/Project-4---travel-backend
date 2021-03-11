@@ -8,7 +8,7 @@ router.post("/login", ctrl.users.login);
 router.get("/new", ctrl.users.renderNew);
 router.post("/signup", ctrl.users.postNew);
 router.get("/:id/edit", ctrl.users.renderEdit);
-router.put("/:id", ctrl.users.putEdit);
+router.put("/:id", ctrl.users.editUser);
 router.delete("/:id", ctrl.users.deleteUser);
 router.get("/:id", ctrl.users.show);
 
