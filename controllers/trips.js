@@ -1,12 +1,10 @@
 const Trip = require("../models").Trip;
 
 const index = (req, res) => {
-    Trip.findAll()
-    .then(trips => {
+    Trip.findAll().then(trips => {
         res.json(trips)
     })
-    .catch(err => {
-        res.send(`ERROR: ${err}`);
+    .catch(err => {res.send(`ERROR: ${err}`);
     })
         // res.render("index.ejs", {
         //     trips: trips
@@ -30,8 +28,6 @@ const renderNew = (req, res) => {
 };
 
 const postNew = (req, res) => {
-
-
     Trip.create(req.body)
     .then(newTrip => {
         res.json(newTrip)

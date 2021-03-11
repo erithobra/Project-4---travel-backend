@@ -44,7 +44,11 @@ const renderNew = (req, res) => {
 
 const postNew = (req, res) => {
     User.create(req.body).then(newUser => {
-        res.redirect("/users")
+        res.json(newUser)
+        // res.redirect("/users")
+    })
+    .catch(err => {
+        res.send(`ERROR: ${err}`)
     });
 };
 
