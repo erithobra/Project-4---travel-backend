@@ -1,7 +1,15 @@
 const Trip = require("../models").Trip;
+const User = require("../models").User;
 
 const index = (req, res) => {
-    Trip.findAll().then(trips => {
+    Trip.findAll({
+        include: [
+            {
+                model: User
+            }
+        ]
+    })
+    .then(trips => {
         res.json(trips)
     })
     .catch(err => {res.send(`ERROR: ${err}`);
@@ -12,7 +20,14 @@ const index = (req, res) => {
 };
 
 const show = (req, res) => {
-    Trip.findByPk(req.params.id).then(trip => {
+    Trip.findByPk(req.params.id, {
+        include: [
+            {
+                model: User
+            }
+        ]
+    })
+    .then(trip => {
         res.render("show.ejs", {
             trip: trip
         });
