@@ -1,11 +1,15 @@
 const Trip = require("../models").Trip;
 const User = require("../models").User;
+const Day = require("../models").Day;
 
 const index = (req, res) => {
     Trip.findAll({
         include: [
             {
                 model: User
+            },
+            {
+                model: Day
             }
         ]
     })
@@ -23,7 +27,8 @@ const show = (req, res) => {
     Trip.findByPk(req.params.id, {
         include: [
             {
-                model: User
+                model: User,
+                model: Day
             }
         ]
     })
