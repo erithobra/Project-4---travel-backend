@@ -1,7 +1,15 @@
 const User = require("../models").User;
+const Trip = require("../models").Trip;
 
 const index = (req, res) => {
-    User.findAll().then(users => {
+    User.findAll(({
+        include: [
+            {
+                model: Trip
+            }
+        ]
+    }))
+    .then(users => {
         res.json(users)
     })
     .catch(err => {
