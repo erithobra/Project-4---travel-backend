@@ -51,17 +51,18 @@ const putEdit = (req, res) => {
         where: { id: req.params.id },
         returning: true
     })
-    .then(trip => {
-        res.redirect("/trips");
-    });
+    // .then(trip => {
+    //     res.redirect("/trips");
+    // });
     // trips[req.params.id] = req.body;
     // res.redirect('/trips');
 };
 
 const deleteTrip = (req, res) => {
-    Trip.destroy({ where: { id: req.params.id } }).then(() => {
-        res.redirect("/trips");
-    });
+    Trip.destroy({ where: { id: req.params.id } })
+    // .then(() => {
+    //     res.redirect("/trips");
+    // });
 };
 
 module.exports = {
