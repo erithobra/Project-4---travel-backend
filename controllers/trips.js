@@ -23,6 +23,17 @@ const index = (req, res) => {
         // })
 };
 
+
+const newDay = (req, res) => {
+    Day.create(req.body)
+    .then(newDay => {
+        res.json(newDay)
+    })
+    .catch(err => {
+        res.send(`ERROR: ${err}`)
+    });
+};
+
 const show = (req, res) => {
     Trip.findByPk(req.params.id, {
         include: [
@@ -85,6 +96,8 @@ const deleteTrip = (req, res) => {
     // });
 };
 
+
+
 module.exports = {
     index,
     show,
@@ -93,4 +106,5 @@ module.exports = {
     renderEdit,
     putEdit,
     deleteTrip,
+    newDay
 };
