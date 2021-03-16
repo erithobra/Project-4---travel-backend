@@ -6,7 +6,7 @@ const index = (req, res) => {
         include: [
             {
                 model: Trip
-            }
+            },
         ]
     }))
     .then(users => {

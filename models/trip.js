@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Trip.belongsTo(models.User, { foreignKey: "userId" });
       Trip.hasMany(models.Day, { foreignKey: "tripId" });
+      Trip.hasMany(models.Photo, { foreignKey: "tripId" });
     }
   };
   Trip.init({

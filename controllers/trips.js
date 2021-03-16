@@ -1,6 +1,7 @@
 const Trip = require("../models").Trip;
 const User = require("../models").User;
 const Day = require("../models").Day;
+const Photo = require("../models").Photo;
 
 const index = (req, res) => {
     Trip.findAll({
@@ -10,6 +11,9 @@ const index = (req, res) => {
             },
             {
                 model: Day
+            },
+            {
+                model: Photo
             }
         ]
     })
@@ -39,7 +43,8 @@ const show = (req, res) => {
         include: [
             {
                 model: User,
-                model: Day
+                model: Day,
+                model: Photo
             }
         ]
     })
