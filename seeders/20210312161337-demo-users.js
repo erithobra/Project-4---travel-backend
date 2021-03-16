@@ -7,13 +7,15 @@ module.exports = {
         username: "billy",
         firstName: "Bill",
         lastName: "Preston",
-        password: "excellent"
+        password: "excellent",
+        profilePicture: "https://i.imgur.com/9MRpC32.png"
       },
       {
         username: "teddy",
         firstName: "Theodore",
         lastName: "Logan",
-        password: "whoa"
+        password: "whoa",
+        profilePicture: "https://i.imgur.com/gA53SuX.png"
       }
     ], {});
 

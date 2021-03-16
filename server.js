@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 
 app.use("/trips", routes.trips);
 app.use("/users", routes.users);
+app.use("/days", routes.days);
 
 // app.get("/", (req,res) => {
 //     res.send("here is your information");
