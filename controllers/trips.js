@@ -38,6 +38,13 @@ const newDay = (req, res) => {
     });
 };
 
+const editDay = (req, res) => {
+    Day.update(req.body, {
+        where: { id: req.params.id },
+        returning: true
+    })
+};
+
 const show = (req, res) => {
     Trip.findByPk(req.params.id, {
         include: [
@@ -111,5 +118,6 @@ module.exports = {
     renderEdit,
     putEdit,
     deleteTrip,
-    newDay
+    newDay,
+    editDay
 };

@@ -1,7 +1,7 @@
 const Day = require("../models").Day;
 
 const newDay = (req, res) => {
-    Day.create(reg.body)
+    Day.create(req.body)
     .then(newDay => {
         res.json(newDay)
     })
@@ -10,6 +10,14 @@ const newDay = (req, res) => {
     });
 };
 
+const editDay = (req, res) => {
+    Day.update(req.body, {
+        where: { id: req.params.id },
+        returning: true
+    })
+};
+
 module.exports = {
-    newDay
+    newDay,
+    editDay
 };
