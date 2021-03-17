@@ -4,6 +4,7 @@ const ctrl = require("../controllers");
 
 router.get("/", ctrl.trips.index);
 router.post("/:id/day/new", ctrl.trips.newDay)
+router.post("/:id/photo/new", ctrl.trips.newPhoto)
 router.put("/:id/day/:id/edit", ctrl.trips.editDay)
 router.get("/new", ctrl.trips.renderNew);
 router.post("/postNew", ctrl.trips.postNew);

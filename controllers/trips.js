@@ -27,6 +27,15 @@ const index = (req, res) => {
         // })
 };
 
+const newPhoto = (req, res) => {
+    Photo.create(req.body)
+    .then(newPhoto => {
+        res.json(newPhoto)
+    })
+    .catch(err => {
+        res.send(`ERROR: ${err}`)
+    });
+};
 
 const newDay = (req, res) => {
     Day.create(req.body)
@@ -119,5 +128,6 @@ module.exports = {
     putEdit,
     deleteTrip,
     newDay,
-    editDay
+    editDay,
+    newPhoto
 };
