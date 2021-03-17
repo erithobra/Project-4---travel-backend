@@ -9,14 +9,12 @@
   "production": {
     "use_env_variable": "DATABASE_URL",
     "dialectOptions": {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
-      }
+        "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+        }
+    }
   }
-},
-  "scripts": {
-  "start": "node server.js"
-  }
-}
+}  
+
 
