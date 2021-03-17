@@ -12,3 +12,13 @@
         password: "whoa"
         profilePicture: "https://i.imgur.com/gA53SuX.png"
       }
+
+
+
+
+        "development": {
+    "database": "travel_app_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorAliases": false
+  },
