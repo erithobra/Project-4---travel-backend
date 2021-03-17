@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const methodOverride = require("method-override");
 const routes = require("./routes");
@@ -31,6 +32,6 @@ app.use("/days", routes.days);
 //     res.send("here is your information");
 // });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
     console.log("I am listening");
 });
