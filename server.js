@@ -10,7 +10,7 @@ app.use(express.urlencoded( {extended: true }));
 app.use(methodOverride('_method'));
 
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    // origin: ['http://localhost:3000'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
@@ -27,10 +27,6 @@ app.use((req, res, next) => {
 app.use("/trips", routes.trips);
 app.use("/users", routes.users);
 app.use("/days", routes.days);
-
-// app.get("/", (req,res) => {
-//     res.send("here is your information");
-// });
 
 app.listen(process.env.PORT, () => {
     console.log("I am listening");
