@@ -52,6 +52,9 @@ const editDay = (req, res) => {
         where: { id: req.params.id },
         returning: true
     })
+    .then(resp => {
+        res.status(200).json(resp)
+    })
 };
 
 const show = (req, res) => {
