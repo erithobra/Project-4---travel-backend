@@ -9,12 +9,6 @@ const bodyParser = require("body-parser");
 app.use(express.urlencoded( {extended: true }));
 app.use(methodOverride('_method'));
 
-const corsOptions = {
-    origin: ['http://localhost:3000'],
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true, //allows session cookies to be sent back and forth
-    optionsSuccessStatus: 200 //legacy browsers
-}
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "http://ebtraveleb.surge.sh");
@@ -24,6 +18,17 @@ app.use((req, res, next) => {
     );
     next();
   })
+
+//http://localhost:3000
+
+const corsOptions = {
+    origin: ['https://traveljournal-eb.herokuapp.com'],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, //allows session cookies to be sent back and forth
+    optionsSuccessStatus: 200 //legacy browsers
+}
+
+
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
