@@ -16,6 +16,15 @@ const corsOptions = {
     optionsSuccessStatus: 200 //legacy browsers
 }
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://ebtraveleb.surge.sh");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  })
+
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
