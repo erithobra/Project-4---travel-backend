@@ -14,17 +14,12 @@ const index = (req, res) => {
     })
     .catch(err => {
         res.send(`ERROR: ${err}`);
-    
-
-        // res.render("users/index.ejs", {
-        //     users: users
-        // });
     });
 };
 
 const renderLogin = (req, res) => {
     res.render("users/login.ejs")
-}
+};
 
 const login = (req, res) => {
     User.findOne({
@@ -53,7 +48,6 @@ const renderNew = (req, res) => {
 const postNew = (req, res) => {
     User.create(req.body).then(newUser => {
         res.json(newUser)
-        // res.redirect("/users")
     })
     .catch(err => {
         res.send(`ERROR: ${err}`)
@@ -82,36 +76,12 @@ const editUser = (req, res) => {
     })
     .catch(err => {
         res.send(`ERROR; ${err}`);
-    })
-    // .then(user => {
-    //     res.redirect("/users");
-    // });
+    });
 };
 
 const deleteUser = (req, res) => {
-    // User.findByPk(req.user.id)
-    // .then(foundUser => {
-    //     if(foundUser.userId === req.user.id){
-    //         User.destroy({})
-    //         .then(() => {
-    //             res.send("success")
-    //         })
-    //     } else {
-    //         res.send("ERROR: cannont delete user")
-    //     }
-    // })
-    // .catch(err => {
-    //     res.send(`ERROR: ${err}`);
-    // })
-    
     User.destroy({ 
         where: { id: req.params.id } })
-        // .then(() => {
-        //     res.redirect("/users");
-        // });
-
-    // users.splice(req.params.id, 1)
-    // res.redirect("/users")
 };
 
 module.exports = {

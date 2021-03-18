@@ -13,6 +13,4 @@ router.put("/:id", ctrl.trips.putEdit);
 router.delete("/:id", ctrl.trips.deleteTrip);
 router.get("/:id", ctrl.trips.show);
 
-
-
 module.exports = router;

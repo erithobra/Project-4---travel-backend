@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 app.use(express.urlencoded( {extended: true }));
 app.use(methodOverride('_method'));
 
+// hold code in case cors issue needs to be resolved.
 
 // app.use((req, res, next) => {
 //     res.setHeader("Access-Control-Allow-Origin", "http://ebtraveleb.surge.sh");
@@ -30,8 +31,6 @@ const corsOptions = {
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
 }
-
-
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
