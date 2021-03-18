@@ -10,7 +10,7 @@ app.use(express.urlencoded( {extended: true }));
 app.use(methodOverride('_method'));
 
 const corsOptions = {
-    // origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
