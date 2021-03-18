@@ -20,7 +20,6 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    console.log("I run for all routes");
     next();
 });
 
@@ -29,5 +28,4 @@ app.use("/users", routes.users);
 app.use("/days", routes.days);
 
 app.listen(process.env.PORT, () => {
-    console.log("I am listening");
 });
