@@ -10,19 +10,22 @@ app.use(express.urlencoded( {extended: true }));
 app.use(methodOverride('_method'));
 
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://ebtraveleb.surge.sh");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-  })
+// app.use((req, res, next) => {
+//     res.setHeader("Access-Control-Allow-Origin", "http://ebtraveleb.surge.sh");
+//     res.header(
+//       "Access-Control-Allow-Headers",
+//       "Origin, X-Requested-With, Content-Type, Accept"
+//     );
+//     next();
+//   })
 
 //http://localhost:3000
+//https://traveljournal-eb.herokuapp.com
+//http://ebtraveleb.surge.sh
+
 
 const corsOptions = {
-    origin: ['https://traveljournal-eb.herokuapp.com'],
+    origin: ['http://ebtraveleb.surge.sh'],
     methods: "GET,POST,PUT,DELETE",
     credentials: true, //allows session cookies to be sent back and forth
     optionsSuccessStatus: 200 //legacy browsers
