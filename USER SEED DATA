@@ -16,9 +16,26 @@
 
 
 
-        "development": {
+  {
+  "development": {
     "database": "travel_app_db",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorAliases": false
   },
+
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+        "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+        }
+    }
+  }
+}
+
+app.listen(process.env.PORT, () => {
+    console.log("I am listening");
+});

@@ -19,13 +19,13 @@ module.exports = {
         date: "2019-07-19",
         photo: "https://i.imgur.com/xucxK0U.jpg",
         location: "Pasewalk, Germany",
-        tripId: 1
+        tripId: 2
       },
       {
         date: "2019-07-19",
         photo: "https://i.imgur.com/NpUkDRE.jpg",
         location: "Pasewalk, Germany",
-        tripId: 1
+        tripId: 2
       },
       {
         date: "2019-07-20",
@@ -37,7 +37,7 @@ module.exports = {
         date: "2019-07-20",
         photo: "https://i.imgur.com/JUU8M5O.jpg",
         location: "Neuenfeld, Germany",
-        tripId: 1
+        tripId: 2
       },
       {
         date: "2019-07-20",
@@ -49,7 +49,7 @@ module.exports = {
         date: "2019-07-20",
         photo: "https://i.imgur.com/GgVeu5q.jpg",
         location: "Kraatz, Germany",
-        tripId: 1
+        tripId: 2
       },
       {
         date: "2019-07-20",
@@ -61,7 +61,7 @@ module.exports = {
         date: "2019-07-20",
         photo: "https://i.imgur.com/HN4cSPC.jpg",
         location: "Hamburg, Germany",
-        tripId: 1
+        tripId: 2
       }
     ], {});
   },
